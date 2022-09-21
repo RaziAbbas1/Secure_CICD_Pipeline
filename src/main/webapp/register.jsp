@@ -8,7 +8,7 @@
 	<center> 
 		<table border="1" width="30%" cellpadding="5"> 
 		<thead> <tr> <th colspan="2">Enter mat kerna</th> </tr> </thead> 
-		<tbody> <tr> <td>Mera Name</td> <td><input type="text" name="firstName" value="" /></td> 
+		<tbody> <tr> <td>First Name</td> <td><input type="text" name="firstName" value="" /></td> 
 		</tr> <tr> <td>Last Name</td> <td><input type="text" name="lastName" value="" /></td> </tr> 
 		<tr> <td>Email</td> <td><input type="text" name="email" value="" /></td> </tr> 
 		<tr> <td>User Name</td> <td><input type="text" name="userName" value="" /></td> </tr> 
