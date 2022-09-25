@@ -25,9 +25,9 @@ pipeline {
                         sh 'cat trufflehog_report.json'
                         sh 'echo "Scanning Repositories.....done"'
                         archiveArtifacts artifacts: 'trufflehog_report.json', onlyIfSuccessful: true                      
-                       // emailext attachLog: true, attachmentsPattern: 'trufflehog_report.json',
-                       // body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}\n Thankyou,\n CDAC-Project Group-7", 
-                       // subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME} - success", mimeType: 'text/html', to: "raziabbasrizvi75@gmail.com"
+                        emailext attachLog: true, attachmentsPattern: 'trufflehog_report.json',
+                        body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}\n Thankyou,\n CDAC-Project Group-11", 
+                        subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME} - success", mimeType: 'text/html', to: "daddu1017@gmail.com"
                     }
                 }
                 stage('Image Security') {
@@ -44,9 +44,9 @@ pipeline {
                         sh 'dockle --input ~/docker_img_backup/sonarqube.tar -f json -o sonarqube_report.json'
                         sh 'cat sonarqube_report.json | jq {summary}'
                         archiveArtifacts artifacts: '*.json', onlyIfSuccessful: true
-      //                  emailext attachLog: true, attachmentsPattern: '*.json', 
-     //                   body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}\n Please Find Attachments for the following:\n Thankyou\n CDAC-Project Group-7",
-     //                   subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - success", mimeType: 'text/html', to: "abbyvishnoi@gmail.com"
+                       emailext attachLog: true, attachmentsPattern: '*.json', 
+                       body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}\n Please Find Attachments for the following:\n Thankyou\n CDAC-Project Group-7",
+                       subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - success", mimeType: 'text/html', to: "daddu1017@gmail.com"
                     }
                 }
             }
@@ -68,18 +68,18 @@ pipeline {
                         archiveArtifacts artifacts: 'odc-reports/*.html', onlyIfSuccessful: true
                    //     archiveArtifacts artifacts: 'odc-reports/*.csv', onlyIfSuccessful: true
                      //   archiveArtifacts artifacts: 'odc-reports/*.json', onlyIfSuccessful: true
-     //                   emailext attachLog: true, attachmentsPattern: '*.html', 
-     //                   body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}\n Please Find Attachments for the following:\n Thankyou\n CDAC-Project Group-7",
-     //                   subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - success", mimeType: 'text/html', to: "abbyvishnoi@gmail.com"
+                         emailext attachLog: true, attachmentsPattern: '*.html', 
+                        body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}\n Please Find Attachments for the following:\n Thankyou\n CDAC-Project Group-7",
+                        subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - success", mimeType: 'text/html', to: "daddu1017@gmail.com"
                     }
                 }
                 stage('Junit Testing') {
                     steps {
                         sh 'echo "Junit Reports are created using archiveArtifacts"'
                         archiveArtifacts artifacts: '*junit.xml', onlyIfSuccessful: true
-                   //     emailext attachLog: true, attachmentsPattern: '*junit.xml', 
-                    //    body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}\n Please Find Attachments for the following:\n Thankyou\n CDAC-Project Group-7",
-                   //     subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - success", mimeType: 'text/html', to: "abbyvishnoi@gmail.com"
+                        emailext attachLog: true, attachmentsPattern: '*junit.xml', 
+                        body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}\n Please Find Attachments for the following:\n Thankyou\n CDAC-Project Group-7",
+                        subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - success", mimeType: 'text/html', to: "daddu1017@gmail.com"
                     }
                 }
             }
